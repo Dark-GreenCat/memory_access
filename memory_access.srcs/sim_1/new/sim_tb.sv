@@ -1,5 +1,11 @@
 `timescale 1ps / 1ps
 
+`define MRF_0_MEMORY_INST ma_wrapper_inst.ma_i.mrf_0.inst.native_mem_module.blk_mem_gen_v8_4_8_inst.memory
+`define MRF_0_DUMP_FILE "dump_mrf_0.txt"
+
+parameter MRF_DATAWIDTH = 1024;
+parameter MRF_DEPTH = 64;
+
 module sim_tb;
 
   // Parameter declarations
@@ -49,8 +55,36 @@ module sim_tb;
     repeat (5) @(posedge clk);
 
 
+    @(posedge clk);
     src_axi_addr  = 36'h3;
-    dst_bram_addr = 6'h7;
+    dst_bram_addr = 6'h48;
+    byte_to_trans = 15'(128 * 16);
+    start         = 1;
+    @(posedge clk);
+    start = 0;
+    @(posedge done);
+
+    @(posedge clk);
+    src_axi_addr  = 36'h9;
+    dst_bram_addr = 6'h32;
+    byte_to_trans = 15'(128 * 16);
+    start         = 1;
+    @(posedge clk);
+    start = 0;
+    @(posedge done);
+
+    @(posedge clk);
+    src_axi_addr  = 36'h1a;
+    dst_bram_addr = 6'h0;
+    byte_to_trans = 15'(128 * 16);
+    start         = 1;
+    @(posedge clk);
+    start = 0;
+    @(posedge done);
+
+    @(posedge clk);
+    src_axi_addr  = 36'hf;
+    dst_bram_addr = 6'h16;
     byte_to_trans = 15'(128 * 16);
     start         = 1;
     @(posedge clk);
@@ -58,13 +92,8 @@ module sim_tb;
     @(posedge done);
 
 
-
     repeat (5) @(posedge clk);
-    $finish;
-  end
-
-  initial begin
-    #(CLK_PERIOD * 500);
+    log_mrf(`MRF_0_DUMP_FILE, `MRF_0_MEMORY_INST);
     $finish;
   end
 
@@ -81,3 +110,10 @@ module sim_tb;
   );
 
 endmodule
+
+task automatic log_mrf(string filename, input [MRF_DATAWIDTH-1:0] memory[0:MRF_DEPTH-1]);
+  int dump_file = $fopen(filename, "w");
+  for (int i = 0; i < MRF_DEPTH; i = i + 1) begin
+    $fdisplay(dump_file, "mem[%04d]: %h", i, memory[i]);
+  end
+endtask

@@ -96,10 +96,12 @@ module axi2bram_datamover #(
   /******************************************/
   /********* INTERNAL & OUTPUT LOGIC ********/
   /******************************************/
+  logic done;
   logic [7:0] transfer_count;
 
   always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
+      done           <= 0;
       done_o         <= 0;
 
       m_axi_araddr   <= {AXI_ADDRWIDTH{1'b0}};
@@ -120,10 +122,11 @@ module axi2bram_datamover #(
 
       transfer_count <= 8'b0;
     end else begin
+      if (done) done <= 0;
+      done_o <= done;
+
       case (state)
         IDLE: begin
-          done_o         <= 0;
-
           m_axi_araddr   <= {AXI_ADDRWIDTH{1'b0}};
           m_axi_arburst  <= `AXI4_AXBURST_DEFAULT;
           m_axi_arcache  <= (`AXI4_AXCACHE_DEFAULT | `AXI4_AXCACHE_BIT1_MOD);
@@ -157,13 +160,14 @@ module axi2bram_datamover #(
 
           if (m_axi_rvalid && m_axi_rready) begin
             bram_en        <= 1;
-            bram_we        <= 0;
+            bram_we        <= 1;
             bram_addr      <= dst_bram_addr_i + transfer_count;
             bram_wrdata    <= m_axi_rdata;
             transfer_count <= transfer_count + 1;
 
             if (m_axi_rlast) begin
               m_axi_rready <= 0;
+              done         <= 1;
             end
           end else begin
             bram_en <= 0;
