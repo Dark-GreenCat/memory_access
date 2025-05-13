@@ -1,76 +1,60 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.09182",
-   "Default View_TopLeft":"-464,304",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-950,-123",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0 TLS
 #  -string -flagsOSRD
-preplace port port-id_ddr4_clk -pg 1 -lvl 0 -x 0 -y 510 -defaultsOSRD
-preplace port port-id_clk -pg 1 -lvl 0 -x 0 -y 530 -defaultsOSRD
-preplace port port-id_rst_n -pg 1 -lvl 0 -x 0 -y 550 -defaultsOSRD
-preplace port port-id_ddr4_rst_n -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
-preplace port port-id_mrf_0_start_i -pg 1 -lvl 0 -x 0 -y 930 -defaultsOSRD
-preplace port port-id_mrf_0_done_o -pg 1 -lvl 6 -x 1660 -y 1020 -defaultsOSRD
-preplace port port-id_vrf_ld_start_i -pg 1 -lvl 0 -x 0 -y 610 -defaultsOSRD
-preplace port port-id_vrf_ld_done_0 -pg 1 -lvl 6 -x 1660 -y 600 -defaultsOSRD
-preplace port port-id_vrf_full_o -pg 1 -lvl 6 -x 1660 -y 340 -defaultsOSRD
-preplace portBus mrf_0_dst_bram_addr_i -pg 1 -lvl 0 -x 0 -y 970 -defaultsOSRD
-preplace portBus mrf_0_src_axi_addr_i -pg 1 -lvl 0 -x 0 -y 950 -defaultsOSRD
-preplace portBus mrf_0_byte_to_trans_i -pg 1 -lvl 0 -x 0 -y 990 -defaultsOSRD
-preplace portBus vrf_ld_byte_to_trans_i -pg 1 -lvl 0 -x 0 -y 670 -defaultsOSRD
-preplace portBus vrf_ld_dst_bram_addr_i -pg 1 -lvl 0 -x 0 -y 650 -defaultsOSRD
-preplace portBus vrf_ld_src_axi_addr_i -pg 1 -lvl 0 -x 0 -y 630 -defaultsOSRD
-preplace inst ddr4_mig -pg 1 -lvl 3 -x 1010 -y 150 -defaultsOSRD
-preplace inst ddr4 -pg 1 -lvl 5 -x 1530 -y 150 -defaultsOSRD
-preplace inst mrf_0 -pg 1 -lvl 2 -x 660 -y 940 -defaultsOSRD
-preplace inst rst_n_not -pg 1 -lvl 1 -x 230 -y 790 -defaultsOSRD
-preplace inst axi2bram_datamover_mrf_0 -pg 1 -lvl 1 -x 230 -y 940 -defaultsOSRD
-preplace inst slice -pg 1 -lvl 4 -x 1290 -y 60 -defaultsOSRD
-preplace inst interconnnect -pg 1 -lvl 2 -x 660 -y 690 -defaultsOSRD
-preplace inst axi2bram_datamover_vrf_load -pg 1 -lvl 1 -x 230 -y 620 -defaultsOSRD
-preplace inst vrf -pg 1 -lvl 5 -x 1530 -y 470 -defaultsOSRD
-preplace inst arbiter -pg 1 -lvl 1 -x 230 -y 360 -defaultsOSRD
-preplace inst bram2arbiter_datamover_vrf_load -pg 1 -lvl 2 -x 660 -y 370 -defaultsOSRD
-preplace netloc aresetn_0_1 1 0 3 NJ 170 460 170 NJ
-preplace netloc axi2bram_datamover_done 1 1 5 410J 1020 NJ 1020 NJ 1020 NJ 1020 NJ
-preplace netloc byte_to_trans_0_1 1 0 1 NJ 990
-preplace netloc clk_0_1 1 0 5 20 500 480 500 NJ 500 NJ 500 1400J
-preplace netloc clk_100MHz_1 1 0 3 NJ 510 400 150 NJ
-preplace netloc ddr4_douta 1 3 2 NJ 160 N
-preplace netloc ddr4_mig_bram_addr_a 1 3 1 1180J 60n
-preplace netloc ddr4_mig_bram_clk_a 1 3 2 NJ 120 N
-preplace netloc ddr4_mig_bram_en_a 1 3 2 NJ 180 N
-preplace netloc ddr4_mig_bram_rst_a 1 3 2 NJ 200 N
-preplace netloc ddr4_mig_bram_we_a 1 3 2 NJ 220 N
-preplace netloc ddr4_mig_bram_wrdata_a 1 3 2 NJ 140 N
-preplace netloc dst_bram_addr_0_1 1 0 1 NJ 970
-preplace netloc rst_n_0_1 1 0 2 30 730 490
-preplace netloc rst_n_not_Res 1 1 4 440 840 NJ 840 NJ 840 1420
-preplace netloc slice_Dout 1 4 1 1400 60n
-preplace netloc src_axi_addr_0_1 1 0 1 NJ 950
-preplace netloc start_0_1 1 0 1 NJ 930
-preplace netloc arbiter_addra 1 1 4 410J 280 NJ 280 NJ 280 1400
-preplace netloc arbiter_dina 1 1 4 410J 460 NJ 460 NJ 460 N
-preplace netloc arbiter_ena 1 1 4 470J 480 NJ 480 NJ 480 1410
-preplace netloc arbiter_wea 1 1 4 440 530 NJ 530 NJ 530 1410J
-preplace netloc vrf_douta 1 0 5 40 490 430J 510 NJ 510 NJ 510 1420J
-preplace netloc byte_to_trans_0_2 1 0 1 NJ 670
-preplace netloc dst_bram_addr_0_2 1 0 1 NJ 650
-preplace netloc src_axi_addr_0_2 1 0 1 NJ 630
-preplace netloc start_0_2 1 0 1 NJ 610
-preplace netloc axi2bram_datamover_vrf_load_done 1 1 5 470J 540 NJ 540 NJ 540 1400J 600 NJ
-preplace netloc bram2arbiter_datamov_0_full 1 2 4 NJ 340 NJ 340 NJ 340 NJ
-preplace netloc arbiter_wr_gnt 1 1 1 500 320n
-preplace netloc bram2arbiter_datamover_vrf_load_wr_req 1 0 3 60 250 NJ 250 830
-preplace netloc bram2arbiter_datamover_vrf_load_wr_addr 1 0 3 60 470 NJ 470 830
-preplace netloc bram2arbiter_datamover_vrf_load_wr_data 1 0 3 50 480 450J 490 820
-preplace netloc axi2bram_datamover_BRAM_PORT 1 1 1 N 920
-preplace netloc axi2bram_datamover_M_AXI 1 1 1 450 600n
-preplace netloc interconnnect_M00_AXI 1 2 1 840 130n
-preplace netloc axi2bram_datamover_vrf_load_M_AXI 1 1 1 N 620
-preplace netloc axi2bram_datamover_vrf_load_BRAM_PORT 1 1 1 420 340n
-levelinfo -pg 1 0 230 660 1010 1290 1530 1660
-pagesize -pg 1 -db -bbox -sgen -250 0 1810 1050
+preplace port M_AXI_MRF0 -pg 1 -lvl 3 -x 810 -y 160 -defaultsOSRD
+preplace port M_AXI_VRF -pg 1 -lvl 3 -x 810 -y 450 -defaultsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x 0 -y 360 -defaultsOSRD
+preplace port port-id_rst_n -pg 1 -lvl 0 -x 0 -y 380 -defaultsOSRD
+preplace port port-id_mrf0_ld_start_i -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD
+preplace port port-id_mrf0_ld_done_o -pg 1 -lvl 3 -x 810 -y 180 -defaultsOSRD
+preplace port port-id_vrf_ld_start_i -pg 1 -lvl 0 -x 0 -y 440 -defaultsOSRD
+preplace port port-id_vrf_ld_full_o -pg 1 -lvl 3 -x 810 -y 280 -defaultsOSRD
+preplace port port-id_vrf_arbiter_wr_gnt_i -pg 1 -lvl 0 -x 0 -y 340 -defaultsOSRD
+preplace port port-id_vrf_arbiter_wr_req_o -pg 1 -lvl 3 -x 810 -y 300 -defaultsOSRD
+preplace port port-id_mrf0_bram_en_o -pg 1 -lvl 3 -x 810 -y 80 -defaultsOSRD
+preplace port port-id_mrf0_bram_we_o -pg 1 -lvl 3 -x 810 -y 120 -defaultsOSRD
+preplace portBus mrf0_ld_dst_bram_addr_i -pg 1 -lvl 0 -x 0 -y 150 -defaultsOSRD
+preplace portBus mrf0_ld_src_axi_addr_i -pg 1 -lvl 0 -x 0 -y 130 -defaultsOSRD
+preplace portBus mrf0_ld_byte_to_trans_i -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace portBus vrf_ld_byte_to_trans_i -pg 1 -lvl 0 -x 0 -y 500 -defaultsOSRD
+preplace portBus vrf_ld_dst_bram_addr_i -pg 1 -lvl 0 -x 0 -y 480 -defaultsOSRD
+preplace portBus vrf_ld_src_axi_addr_i -pg 1 -lvl 0 -x 0 -y 460 -defaultsOSRD
+preplace portBus vrf_arbiter_wr_data_o -pg 1 -lvl 3 -x 810 -y 340 -defaultsOSRD
+preplace portBus vrf_arbiter_wr_addr_o -pg 1 -lvl 3 -x 810 -y 320 -defaultsOSRD
+preplace portBus mrf0_bram_wrdata_o -pg 1 -lvl 3 -x 810 -y 100 -defaultsOSRD
+preplace portBus mrf0_bram_addr_o -pg 1 -lvl 3 -x 810 -y 140 -defaultsOSRD
+preplace inst axi2bram_datamover_mrf_0 -pg 1 -lvl 2 -x 590 -y 120 -defaultsOSRD
+preplace inst axi2bram_datamover_vrf_load -pg 1 -lvl 1 -x 200 -y 450 -defaultsOSRD
+preplace inst bram2arbiter_datamover_vrf_load -pg 1 -lvl 2 -x 590 -y 310 -defaultsOSRD
+preplace netloc axi2bram_datamover_done 1 2 1 NJ 180
+preplace netloc bram2arbiter_datamov_0_full 1 2 1 NJ 280
+preplace netloc byte_to_trans_0_1 1 0 2 NJ 170 NJ
+preplace netloc byte_to_trans_0_2 1 0 1 NJ 500
+preplace netloc clk_0_1 1 0 2 20 300 370
+preplace netloc dst_bram_addr_0_1 1 0 2 NJ 150 NJ
+preplace netloc dst_bram_addr_0_2 1 0 1 NJ 480
+preplace netloc rst_n_0_1 1 0 2 30 320 390
+preplace netloc src_axi_addr_0_1 1 0 2 NJ 130 NJ
+preplace netloc src_axi_addr_0_2 1 0 1 NJ 460
+preplace netloc start_0_1 1 0 2 NJ 110 NJ
+preplace netloc start_0_2 1 0 1 NJ 440
+preplace netloc bram2arbiter_datamover_vrf_load_wr_data 1 2 1 NJ 340
+preplace netloc bram2arbiter_datamover_vrf_load_wr_addr 1 2 1 NJ 320
+preplace netloc wr_gnt_0_1 1 0 2 NJ 340 NJ
+preplace netloc bram2arbiter_datamover_vrf_load_wr_req 1 2 1 NJ 300
+preplace netloc axi2bram_datamover_mrf_0_bram_en 1 2 1 NJ 80
+preplace netloc axi2bram_datamover_mrf_0_bram_wrdata 1 2 1 NJ 100
+preplace netloc axi2bram_datamover_mrf_0_bram_we 1 2 1 NJ 120
+preplace netloc axi2bram_datamover_mrf_0_bram_addr 1 2 1 NJ 140
+preplace netloc axi2bram_datamover_vrf_load_BRAM_PORT 1 1 1 380 280n
+preplace netloc axi2bram_datamover_mrf_0_M_AXI 1 2 1 NJ 160
+preplace netloc axi2bram_datamover_vrf_load_M_AXI 1 1 2 NJ 450 NJ
+levelinfo -pg 1 0 200 590 810
+pagesize -pg 1 -db -bbox -sgen -270 0 1080 560
 "
 }
 {

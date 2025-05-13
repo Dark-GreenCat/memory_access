@@ -1,0 +1,74 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-450,-114",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port port-id_c0_ddr4_ui_clk -pg 1 -lvl 0 -x -10 -y 160 -defaultsOSRD
+preplace port port-id_c0_ddr4_ui_clk_sync_rst -pg 1 -lvl 0 -x -10 -y 220 -defaultsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x -10 -y 240 -defaultsOSRD
+preplace port port-id_mrf0_ld_done_o -pg 1 -lvl 6 -x 1810 -y 440 -defaultsOSRD
+preplace port port-id_mrf0_ld_start_i -pg 1 -lvl 0 -x -10 -y 400 -defaultsOSRD
+preplace port port-id_rst_n -pg 1 -lvl 0 -x -10 -y 420 -defaultsOSRD
+preplace port port-id_vrf_ld_full_o -pg 1 -lvl 6 -x 1810 -y 520 -defaultsOSRD
+preplace port port-id_vrf_ld_start_i -pg 1 -lvl 0 -x -10 -y 520 -defaultsOSRD
+preplace port port-id_vrf_arbiter_wr_req_o -pg 1 -lvl 6 -x 1810 -y 500 -defaultsOSRD
+preplace port port-id_vrf_arbiter_wr_gnt_i -pg 1 -lvl 0 -x -10 -y 440 -defaultsOSRD
+preplace port port-id_mrf0_bram_en_o -pg 1 -lvl 6 -x 1810 -y 380 -defaultsOSRD
+preplace port port-id_mrf0_bram_we_o -pg 1 -lvl 6 -x 1810 -y 400 -defaultsOSRD
+preplace portBus mrf0_ld_byte_to_trans_i -pg 1 -lvl 0 -x -10 -y 340 -defaultsOSRD
+preplace portBus mrf0_ld_dst_bram_addr_i -pg 1 -lvl 0 -x -10 -y 360 -defaultsOSRD
+preplace portBus mrf0_ld_src_axi_addr_i -pg 1 -lvl 0 -x -10 -y 380 -defaultsOSRD
+preplace portBus vrf_ld_byte_to_trans_i -pg 1 -lvl 0 -x -10 -y 460 -defaultsOSRD
+preplace portBus vrf_ld_dst_bram_addr_i -pg 1 -lvl 0 -x -10 -y 480 -defaultsOSRD
+preplace portBus vrf_ld_src_axi_addr_i -pg 1 -lvl 0 -x -10 -y 500 -defaultsOSRD
+preplace portBus vrf_arbiter_wr_addr_o -pg 1 -lvl 6 -x 1810 -y 460 -defaultsOSRD
+preplace portBus vrf_arbiter_wr_data_o -pg 1 -lvl 6 -x 1810 -y 480 -defaultsOSRD
+preplace portBus mrf0_bram_wrdata_o -pg 1 -lvl 6 -x 1810 -y 420 -defaultsOSRD
+preplace portBus mrf0_bram_addr_o -pg 1 -lvl 6 -x 1810 -y 360 -defaultsOSRD
+preplace inst c0_ddr4_ui_clk_sync_rst -pg 1 -lvl 1 -x 280 -y 220 -defaultsOSRD
+preplace inst ddr4 -pg 1 -lvl 5 -x 1640 -y 130 -defaultsOSRD
+preplace inst ddr4_mig -pg 1 -lvl 3 -x 1060 -y 210 -defaultsOSRD
+preplace inst interconnect -pg 1 -lvl 2 -x 730 -y 190 -defaultsOSRD
+preplace inst ma -pg 1 -lvl 1 -x 280 -y 420 -defaultsOSRD
+preplace inst slice -pg 1 -lvl 4 -x 1350 -y 80 -defaultsOSRD
+preplace netloc c0_ddr4_ui_clk_0_1 1 0 3 10J 140 570 30 890J
+preplace netloc c0_ddr4_ui_clk_sync_rst_0_1 1 0 1 NJ 220
+preplace netloc c0_ddr4_ui_clk_sync_rst_Res 1 1 2 560 40 880J
+preplace netloc clk_0_1 1 0 2 20 150 580
+preplace netloc ddr4_douta 1 3 2 NJ 220 1460
+preplace netloc ddr4_mig_bram_addr_a 1 3 1 1240J 80n
+preplace netloc ddr4_mig_bram_clk_a 1 3 2 1230J 20 1460
+preplace netloc ddr4_mig_bram_en_a 1 3 2 NJ 240 1480
+preplace netloc ddr4_mig_bram_rst_a 1 3 2 NJ 260 1490
+preplace netloc ddr4_mig_bram_we_a 1 3 2 NJ 280 1500
+preplace netloc ddr4_mig_bram_wrdata_a 1 3 2 1240J 270 1470
+preplace netloc ma_wrapper_0_mrf0_ld_done_o 1 1 5 NJ 440 NJ 440 NJ 440 NJ 440 NJ
+preplace netloc ma_wrapper_0_vrf_ld_full_o 1 1 5 NJ 520 NJ 520 NJ 520 NJ 520 NJ
+preplace netloc mrf0_ld_byte_to_trans_i_0_1 1 0 1 NJ 340
+preplace netloc mrf0_ld_dst_bram_addr_i_0_1 1 0 1 NJ 360
+preplace netloc mrf0_ld_src_axi_addr_i_0_1 1 0 1 NJ 380
+preplace netloc mrf0_ld_start_i_0_1 1 0 1 NJ 400
+preplace netloc rst_n_0_1 1 0 2 30 160 530
+preplace netloc slice_Dout 1 4 1 N 80
+preplace netloc vrf_ld_byte_to_trans_i_0_1 1 0 1 NJ 460
+preplace netloc vrf_ld_dst_bram_addr_i_0_1 1 0 1 NJ 480
+preplace netloc vrf_ld_src_axi_addr_i_0_1 1 0 1 NJ 500
+preplace netloc vrf_ld_start_i_0_1 1 0 1 NJ 520
+preplace netloc ma_vrf_arbiter_wr_addr_o 1 1 5 NJ 460 NJ 460 NJ 460 NJ 460 NJ
+preplace netloc ma_vrf_arbiter_wr_data_o 1 1 5 NJ 480 NJ 480 NJ 480 NJ 480 NJ
+preplace netloc ma_vrf_arbiter_wr_req_o 1 1 5 NJ 500 NJ 500 NJ 500 NJ 500 NJ
+preplace netloc vrf_arbiter_wr_gnt_i_0_1 1 0 1 NJ 440
+preplace netloc ma_mrf0_bram_wrdata_o 1 1 5 NJ 420 NJ 420 NJ 420 NJ 420 NJ
+preplace netloc ma_mrf0_bram_en_o 1 1 5 NJ 380 NJ 380 NJ 380 NJ 380 NJ
+preplace netloc ma_mrf0_bram_we_o 1 1 5 NJ 400 NJ 400 NJ 400 NJ 400 NJ
+preplace netloc ma_mrf0_bram_addr_o 1 1 5 NJ 360 NJ 360 NJ 360 NJ 360 NJ
+preplace netloc ma_wrapper_0_M_AXI_C0_DDR4 1 2 1 N 190
+preplace netloc ma_wrapper_M_AXI_MRF0 1 1 1 540 100n
+preplace netloc ma_wrapper_M_AXI_VRF 1 1 1 550 120n
+levelinfo -pg 1 -10 280 730 1060 1350 1640 1810
+pagesize -pg 1 -db -bbox -sgen -280 0 2080 580
+"
+}
+

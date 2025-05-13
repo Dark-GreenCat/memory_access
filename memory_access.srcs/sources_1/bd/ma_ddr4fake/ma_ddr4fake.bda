@@ -175,12 +175,12 @@
         ],
         "vertices": {
             "V0": {
-                "VM": "ma",
+                "VM": "ma_ddr4fake",
                 "VT": "BC"
             },
             "V1": {
                 "VH": "2",
-                "VM": "ma",
+                "VM": "ma_ddr4fake",
                 "VT": "VR"
             },
             "V2": {
@@ -192,37 +192,37 @@
                 "VT": "AC",
                 "BA": "0x000000000",
                 "HA": "0x3FFFFFFFF",
-                "BP": "C_BASEADDR",
-                "HP": "C_HIGHADDR",
-                "MA": "M_AXI",
-                "MX": "/axi2bram_datamover_mrf_0",
-                "MI": "M_AXI",
-                "MS": "SEG_M_AXI_MRF0_Reg",
-                "MV": "xilinx.com:module_ref:axi2bram_datamover_wrapper:1.0",
-                "SX": "/",
-                "SI": "M_AXI_MRF0",
-                "SS": "Reg",
-                "SV": "::ma_imp:",
+                "BP": "C_S_AXI_BASEADDR",
+                "HP": "C_S_AXI_HIGHADDR",
+                "MA": "M_AXI_MRF0",
+                "MX": "/ma",
+                "MI": "M_AXI_MRF0",
+                "MS": "SEG_ddr4_mig_Mem0",
+                "MV": "xilinx.com:module_ref:ma_wrapper:1.0",
+                "SX": "/ddr4_mig",
+                "SI": "S_AXI",
+                "SS": "Mem0",
+                "SV": "xilinx.com:ip:axi_bram_ctrl:4.1",
                 "TM": "both",
-                "TU": "register"
+                "TU": "memory"
             },
             "V4": {
                 "VT": "AC",
                 "BA": "0x000000000",
                 "HA": "0x3FFFFFFFF",
-                "BP": "C_BASEADDR",
-                "HP": "C_HIGHADDR",
-                "MA": "M_AXI",
-                "MX": "/axi2bram_datamover_vrf_load",
-                "MI": "M_AXI",
-                "MS": "SEG_M_AXI_VRF_Reg",
-                "MV": "xilinx.com:module_ref:axi2bram_datamover_wrapper:1.0",
-                "SX": "/",
-                "SI": "M_AXI_VRF",
-                "SS": "Reg",
-                "SV": "::ma_imp:",
+                "BP": "C_S_AXI_BASEADDR",
+                "HP": "C_S_AXI_HIGHADDR",
+                "MA": "M_AXI_VRF",
+                "MX": "/ma",
+                "MI": "M_AXI_VRF",
+                "MS": "SEG_ddr4_mig_Mem0",
+                "MV": "xilinx.com:module_ref:ma_wrapper:1.0",
+                "SX": "/ddr4_mig",
+                "SI": "S_AXI",
+                "SS": "Mem0",
+                "SV": "xilinx.com:ip:axi_bram_ctrl:4.1",
                 "TM": "both",
-                "TU": "register"
+                "TU": "memory"
             }
         },
         "edges": [
