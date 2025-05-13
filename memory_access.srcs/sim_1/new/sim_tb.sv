@@ -5,7 +5,6 @@
 parameter MRF_DATAWIDTH = 1024;
 parameter MRF_DEPTH = 64;
 
-
 `define VRF_MEMORY_INST ma_wrapper_inst.ma_i.vrf.inst.native_mem_module.blk_mem_gen_v8_4_8_inst.memory
 `define VRF_DUMP_FILE "dump_vrf.txt"
 parameter VRF_DATAWIDTH = 1024;
@@ -30,16 +29,13 @@ module sim_tb;
   logic [14:0] mrf_0_byte_to_trans_i;
   logic        mrf_0_done_o;
 
-  // Arbiter Interface Signals (tie-off if unused)
-  logic        arbiter_wr_req;
-  logic        arbiter_wr_gnt;
-
   // VRF_LD Interface Signals
   logic [14:0] vrf_ld_byte_to_trans_i;
   logic        vrf_ld_done_0;
   logic [ 9:0] vrf_ld_dst_bram_addr_i;
   logic [35:0] vrf_ld_src_axi_addr_i;
   logic        vrf_ld_start_i;
+  logic        vrf_full_o;
 
   // Clock generation
   initial begin
@@ -70,9 +66,6 @@ module sim_tb;
     mrf_0_byte_to_trans_i  = 0;
     mrf_0_done_o           = 0;
 
-    arbiter_wr_req         = 0;  // Tie-off if not used
-    arbiter_wr_gnt         = 0;  // Driven by ma_wrapper
-
     vrf_ld_byte_to_trans_i = 0;
     vrf_ld_done_0          = 0;
     vrf_ld_dst_bram_addr_i = 0;
@@ -99,33 +92,27 @@ module sim_tb;
       begin
         // First VRF_LD Transaction
         @(posedge clk);
-        vrf_ld_src_axi_addr_i  = 36'h0;
-        vrf_ld_dst_bram_addr_i = 10'h0;
-        vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
-        vrf_ld_start_i         = 1;
-        @(posedge clk);
-        vrf_ld_start_i = 0;
-        @(posedge vrf_ld_done_0);
-        @(posedge clk);
-        arbiter_wr_req = 1;
-        @(posedge arbiter_wr_gnt);
-        @(posedge clk);
-        arbiter_wr_req = 0;
+        if (!vrf_full_o) begin
+          vrf_ld_src_axi_addr_i  = 36'h0;
+          vrf_ld_dst_bram_addr_i = 10'h0;
+          vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
+          vrf_ld_start_i         = 1;
+          @(posedge clk);
+          vrf_ld_start_i = 0;
+          @(negedge vrf_full_o);
+        end
 
         // Second VRF_LD Transaction
         @(posedge clk);
-        vrf_ld_src_axi_addr_i  = 36'h80;  // Next 128 bytes
-        vrf_ld_dst_bram_addr_i = 10'h2;  // Next BRAM address
-        vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
-        vrf_ld_start_i         = 1;
-        @(posedge clk);
-        vrf_ld_start_i = 0;
-        @(posedge vrf_ld_done_0);
-        @(posedge clk);
-        arbiter_wr_req = 1;
-        @(posedge arbiter_wr_gnt);
-        @(posedge clk);
-        arbiter_wr_req = 0;
+        if (!vrf_full_o) begin
+          vrf_ld_src_axi_addr_i  = 36'h80;  // Next 128 bytes
+          vrf_ld_dst_bram_addr_i = 10'h2;  // Next BRAM address
+          vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
+          vrf_ld_start_i         = 1;
+          @(posedge clk);
+          vrf_ld_start_i = 0;
+          @(negedge vrf_full_o);
+        end
       end
     join
 
@@ -146,33 +133,27 @@ module sim_tb;
       begin
         // First VRF_LD Transaction
         @(posedge clk);
-        vrf_ld_src_axi_addr_i  = 36'h100;
-        vrf_ld_dst_bram_addr_i = 10'h4;
-        vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
-        vrf_ld_start_i         = 1;
-        @(posedge clk);
-        vrf_ld_start_i = 0;
-        @(posedge vrf_ld_done_0);
-        @(posedge clk);
-        arbiter_wr_req = 1;
-        @(posedge arbiter_wr_gnt);
-        @(posedge clk);
-        arbiter_wr_req = 0;
+        if (!vrf_full_o) begin
+          vrf_ld_src_axi_addr_i  = 36'h100;
+          vrf_ld_dst_bram_addr_i = 10'h4;
+          vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
+          vrf_ld_start_i         = 1;
+          @(posedge clk);
+          vrf_ld_start_i = 0;
+          @(negedge vrf_full_o);
+        end
 
         // Second VRF_LD Transaction
         @(posedge clk);
-        vrf_ld_src_axi_addr_i  = 36'h180;
-        vrf_ld_dst_bram_addr_i = 10'h6;
-        vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
-        vrf_ld_start_i         = 1;
-        @(posedge clk);
-        vrf_ld_start_i = 0;
-        @(posedge vrf_ld_done_0);
-        @(posedge clk);
-        arbiter_wr_req = 1;
-        @(posedge arbiter_wr_gnt);
-        @(posedge clk);
-        arbiter_wr_req = 0;
+        if (!vrf_full_o) begin
+          vrf_ld_src_axi_addr_i  = 36'h180;
+          vrf_ld_dst_bram_addr_i = 10'h6;
+          vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
+          vrf_ld_start_i         = 1;
+          @(posedge clk);
+          vrf_ld_start_i = 0;
+          @(negedge vrf_full_o);
+        end
       end
     join
 
@@ -193,33 +174,27 @@ module sim_tb;
       begin
         // First VRF_LD Transaction
         @(posedge clk);
-        vrf_ld_src_axi_addr_i  = 36'h200;
-        vrf_ld_dst_bram_addr_i = 10'h8;
-        vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
-        vrf_ld_start_i         = 1;
-        @(posedge clk);
-        vrf_ld_start_i = 0;
-        @(posedge vrf_ld_done_0);
-        @(posedge clk);
-        arbiter_wr_req = 1;
-        @(posedge arbiter_wr_gnt);
-        @(posedge clk);
-        arbiter_wr_req = 0;
+        if (!vrf_full_o) begin
+          vrf_ld_src_axi_addr_i  = 36'h200;
+          vrf_ld_dst_bram_addr_i = 10'h8;
+          vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
+          vrf_ld_start_i         = 1;
+          @(posedge clk);
+          vrf_ld_start_i = 0;
+          @(negedge vrf_full_o);
+        end
 
         // Second VRF_LD Transaction
         @(posedge clk);
-        vrf_ld_src_axi_addr_i  = 36'h280;
-        vrf_ld_dst_bram_addr_i = 10'ha;
-        vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
-        vrf_ld_start_i         = 1;
-        @(posedge clk);
-        vrf_ld_start_i = 0;
-        @(posedge vrf_ld_done_0);
-        @(posedge clk);
-        arbiter_wr_req = 1;
-        @(posedge arbiter_wr_gnt);
-        @(posedge clk);
-        arbiter_wr_req = 0;
+        if (!vrf_full_o) begin
+          vrf_ld_src_axi_addr_i  = 36'h280;
+          vrf_ld_dst_bram_addr_i = 10'ha;
+          vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
+          vrf_ld_start_i         = 1;
+          @(posedge clk);
+          vrf_ld_start_i = 0;
+          @(negedge vrf_full_o);
+        end
       end
     join
 
@@ -240,33 +215,27 @@ module sim_tb;
       begin
         // First VRF_LD Transaction
         @(posedge clk);
-        vrf_ld_src_axi_addr_i  = 36'h300;
-        vrf_ld_dst_bram_addr_i = 10'hc;
-        vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
-        vrf_ld_start_i         = 1;
-        @(posedge clk);
-        vrf_ld_start_i = 0;
-        @(posedge vrf_ld_done_0);
-        @(posedge clk);
-        arbiter_wr_req = 1;
-        @(posedge arbiter_wr_gnt);
-        @(posedge clk);
-        arbiter_wr_req = 0;
+        if (!vrf_full_o) begin
+          vrf_ld_src_axi_addr_i  = 36'h300;
+          vrf_ld_dst_bram_addr_i = 10'hc;
+          vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
+          vrf_ld_start_i         = 1;
+          @(posedge clk);
+          vrf_ld_start_i = 0;
+          @(negedge vrf_full_o);
+        end
 
         // Second VRF_LD Transaction
         @(posedge clk);
-        vrf_ld_src_axi_addr_i  = 36'h380;
-        vrf_ld_dst_bram_addr_i = 10'he;
-        vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
-        vrf_ld_start_i         = 1;
-        @(posedge clk);
-        vrf_ld_start_i = 0;
-        @(posedge vrf_ld_done_0);
-        @(posedge clk);
-        arbiter_wr_req = 1;
-        @(posedge arbiter_wr_gnt);
-        @(posedge clk);
-        arbiter_wr_req = 0;
+        if (!vrf_full_o) begin
+          vrf_ld_src_axi_addr_i  = 36'h380;
+          vrf_ld_dst_bram_addr_i = 10'he;
+          vrf_ld_byte_to_trans_i = 15'(128);  // 128 bytes
+          vrf_ld_start_i         = 1;
+          @(posedge clk);
+          vrf_ld_start_i = 0;
+          @(negedge vrf_full_o);
+        end
       end
     join
 
@@ -276,19 +245,18 @@ module sim_tb;
     $finish;
   end
 
-  // Instantiate the wrapper
+  // Instantiate ma_wrapper
   ma_wrapper ma_wrapper_inst (
     .clk                   (clk),
     .rst_n                 (rst_n),
     .ddr4_clk              (ddr4_clk),
     .ddr4_rst_n            (ddr4_rst_n),
-    .arbiter_wr_req        (arbiter_wr_req),          // Tie-off to 0 if not used
-    .arbiter_wr_gnt        (arbiter_wr_gnt),          // Driven by ma_wrapper
     .mrf_0_start_i         (mrf_0_start_i),
     .mrf_0_src_axi_addr_i  (mrf_0_src_axi_addr_i),
     .mrf_0_dst_bram_addr_i (mrf_0_dst_bram_addr_i),
     .mrf_0_byte_to_trans_i (mrf_0_byte_to_trans_i),
     .mrf_0_done_o          (mrf_0_done_o),
+    .vrf_full_o            (vrf_full_o),
     .vrf_ld_start_i        (vrf_ld_start_i),
     .vrf_ld_src_axi_addr_i (vrf_ld_src_axi_addr_i),
     .vrf_ld_dst_bram_addr_i(vrf_ld_dst_bram_addr_i),
@@ -296,7 +264,7 @@ module sim_tb;
     .vrf_ld_done_0         (vrf_ld_done_0)
   );
 
-  // Memory logging task
+  // Memory logging task for MRF
   task automatic log_mrf(string filename, input [MRF_DATAWIDTH-1:0] memory[0:MRF_DEPTH-1]);
     int dump_file = $fopen(filename, "w");
     for (int i = 0; i < MRF_DEPTH; i = i + 1) begin
@@ -305,7 +273,7 @@ module sim_tb;
     $fclose(dump_file);
   endtask
 
-  // Memory logging task
+  // Memory logging task for VRF
   task automatic log_vrf(string filename, input [VRF_DATAWIDTH-1:0] memory[0:VRF_DEPTH-1]);
     int dump_file = $fopen(filename, "w");
     for (int i = 0; i < VRF_DEPTH; i = i + 1) begin

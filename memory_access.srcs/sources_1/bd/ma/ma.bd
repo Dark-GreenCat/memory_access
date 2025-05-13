@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xE7B42970FC831A92",
+      "boundary_crc": "0xD9CD92B6D1BC6F97",
       "device": "xcu250-figd2104-2L-e",
       "gen_directory": "../../../../memory_access.gen/sources_1/bd/ma",
       "name": "ma",
@@ -28,7 +28,8 @@
       },
       "axi2bram_datamover_vrf_load": "",
       "vrf": "",
-      "arbiter": ""
+      "arbiter": "",
+      "bram2arbiter_datamover_vrf_load": ""
     },
     "ports": {
       "ddr4_clk": {
@@ -136,12 +137,6 @@
       "mrf_0_done_o": {
         "direction": "O"
       },
-      "arbiter_wr_req": {
-        "direction": "I"
-      },
-      "arbiter_wr_gnt": {
-        "direction": "O"
-      },
       "vrf_ld_byte_to_trans_i": {
         "direction": "I",
         "left": "14",
@@ -161,6 +156,9 @@
         "direction": "I"
       },
       "vrf_ld_done_0": {
+        "direction": "O"
+      },
+      "vrf_full_o": {
         "direction": "O"
       }
     },
@@ -1602,6 +1600,92 @@
             "direction": "O"
           }
         }
+      },
+      "bram2arbiter_datamover_vrf_load": {
+        "vlnv": "xilinx.com:module_ref:bram2arbiter_datamover_wrapper:1.0",
+        "ip_revision": "1",
+        "xci_name": "ma_bram2arbiter_datamov_0_0",
+        "xci_path": "ip/ma_bram2arbiter_datamov_0_0/ma_bram2arbiter_datamov_0_0.xci",
+        "inst_hier_path": "bram2arbiter_datamover_vrf_load",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bram2arbiter_datamover_wrapper",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "BRAM_PORT": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:bram:1.0",
+            "vlnv": "xilinx.com:interface:bram_rtl:1.0",
+            "port_maps": {
+              "EN": {
+                "physical_name": "bram_en",
+                "direction": "I"
+              },
+              "DIN": {
+                "physical_name": "bram_wrdata",
+                "direction": "I",
+                "left": "1023",
+                "right": "0"
+              },
+              "WE": {
+                "physical_name": "bram_we",
+                "direction": "I"
+              },
+              "ADDR": {
+                "physical_name": "bram_addr",
+                "direction": "I",
+                "left": "9",
+                "right": "0"
+              }
+            }
+          }
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "ma_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "full": {
+            "direction": "O"
+          },
+          "wr_req": {
+            "direction": "O"
+          },
+          "wr_gnt": {
+            "direction": "I"
+          },
+          "wr_addr": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "wr_data": {
+            "direction": "O",
+            "left": "1023",
+            "right": "0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -1615,6 +1699,12 @@
         "interface_ports": [
           "axi2bram_datamover_mrf_0/M_AXI",
           "interconnnect/S00_AXI"
+        ]
+      },
+      "axi2bram_datamover_vrf_load_BRAM_PORT": {
+        "interface_ports": [
+          "bram2arbiter_datamover_vrf_load/BRAM_PORT",
+          "axi2bram_datamover_vrf_load/BRAM_PORT"
         ]
       },
       "axi2bram_datamover_vrf_load_M_AXI": {
@@ -1658,7 +1748,7 @@
       "arbiter_wr_gnt": {
         "ports": [
           "arbiter/wr_gnt",
-          "arbiter_wr_gnt"
+          "bram2arbiter_datamover_vrf_load/wr_gnt"
         ]
       },
       "aresetn_0_1": {
@@ -1674,22 +1764,34 @@
           "mrf_0_done_o"
         ]
       },
-      "axi2bram_datamover_vrf_load_bram_addr": {
-        "ports": [
-          "axi2bram_datamover_vrf_load/bram_addr",
-          "arbiter/wr_addr"
-        ]
-      },
-      "axi2bram_datamover_vrf_load_bram_wrdata": {
-        "ports": [
-          "axi2bram_datamover_vrf_load/bram_wrdata",
-          "arbiter/wr_data"
-        ]
-      },
       "axi2bram_datamover_vrf_load_done": {
         "ports": [
           "axi2bram_datamover_vrf_load/done",
           "vrf_ld_done_0"
+        ]
+      },
+      "bram2arbiter_datamov_0_full": {
+        "ports": [
+          "bram2arbiter_datamover_vrf_load/full",
+          "vrf_full_o"
+        ]
+      },
+      "bram2arbiter_datamover_vrf_load_wr_addr": {
+        "ports": [
+          "bram2arbiter_datamover_vrf_load/wr_addr",
+          "arbiter/wr_addr"
+        ]
+      },
+      "bram2arbiter_datamover_vrf_load_wr_data": {
+        "ports": [
+          "bram2arbiter_datamover_vrf_load/wr_data",
+          "arbiter/wr_data"
+        ]
+      },
+      "bram2arbiter_datamover_vrf_load_wr_req": {
+        "ports": [
+          "bram2arbiter_datamover_vrf_load/wr_req",
+          "arbiter/wr_req"
         ]
       },
       "byte_to_trans_0_1": {
@@ -1714,7 +1816,8 @@
           "vrf/clka",
           "arbiter/clk",
           "interconnnect/S01_ACLK",
-          "axi2bram_datamover_vrf_load/clk"
+          "axi2bram_datamover_vrf_load/clk",
+          "bram2arbiter_datamover_vrf_load/clk"
         ]
       },
       "clk_100MHz_1": {
@@ -1787,7 +1890,8 @@
           "interconnnect/S00_ARESETN",
           "arbiter/rst_n",
           "interconnnect/S01_ARESETN",
-          "axi2bram_datamover_vrf_load/rst_n"
+          "axi2bram_datamover_vrf_load/rst_n",
+          "bram2arbiter_datamover_vrf_load/rst_n"
         ]
       },
       "rst_n_not_Res": {
@@ -1831,12 +1935,6 @@
         "ports": [
           "vrf/douta",
           "arbiter/douta"
-        ]
-      },
-      "wr_req_0_1": {
-        "ports": [
-          "arbiter_wr_req",
-          "arbiter/wr_req"
         ]
       }
     },
