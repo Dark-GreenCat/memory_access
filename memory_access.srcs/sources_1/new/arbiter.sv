@@ -1,6 +1,8 @@
 `timescale 1ns / 1ps
 
-module arbiter (
+module arbiter #(
+  parameter LATENCY = 10
+) (
   input clk,
   input rst_n,
 
@@ -18,26 +20,26 @@ module arbiter (
   output logic          wea
 );
 
-  // Simple arbiter logic
+  logic [$clog2(LATENCY):0] cnt;
+
+  // Sequential logic for counter
   always @(posedge clk or negedge rst_n) begin
-    if (!rst_n) begin
-      wr_gnt <= 1'b0;
-      addra  <= 10'b0;
-      dina   <= 1024'b0;
-      ena    <= 1'b0;
-      wea    <= 1'b0;
-    end else begin
-      // Grant write request when wr_req is high
-      wr_gnt <= wr_req;
-
-      // Pass address and data to VRF when write request is active
-      addra  <= wr_req ? wr_addr : 10'b0;
-      dina   <= wr_req ? wr_data : 1024'b0;
-
-      // Enable VRF and write enable only when write request is active
-      ena    <= wr_req;
-      wea    <= wr_req;
+    if (~rst_n) begin
+      cnt <= 0;
+    end else if (!wr_req) begin
+      cnt <= 0;
+    end else if (cnt < LATENCY) begin
+      cnt <= cnt + 1;
     end
+  end
+
+  // Combinational logic for outputs
+  always @(*) begin
+    wr_gnt = (cnt == LATENCY) & wr_req;
+    addra  = (cnt == LATENCY) ? wr_addr : 10'b0;
+    dina   = (cnt == LATENCY) ? wr_data : 1024'b0;
+    ena    = (cnt == LATENCY) & wr_req;
+    wea    = (cnt == LATENCY) & wr_req;
   end
 
 endmodule

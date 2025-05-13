@@ -195,7 +195,25 @@
                 "BP": "C_S_AXI_BASEADDR",
                 "HP": "C_S_AXI_HIGHADDR",
                 "MA": "M_AXI",
-                "MX": "/axi2bram_datamover",
+                "MX": "/axi2bram_datamover_mrf_0",
+                "MI": "M_AXI",
+                "MS": "SEG_ddr4_mig_Mem0",
+                "MV": "xilinx.com:module_ref:axi2bram_datamover_wrapper:1.0",
+                "SX": "/ddr4_mig",
+                "SI": "S_AXI",
+                "SS": "Mem0",
+                "SV": "xilinx.com:ip:axi_bram_ctrl:4.1",
+                "TM": "both",
+                "TU": "memory"
+            },
+            "V4": {
+                "VT": "AC",
+                "BA": "0x000000000",
+                "HA": "0x3FFFFFFFF",
+                "BP": "C_S_AXI_BASEADDR",
+                "HP": "C_S_AXI_HIGHADDR",
+                "MA": "M_AXI",
+                "MX": "/axi2bram_datamover_vrf_load",
                 "MI": "M_AXI",
                 "MS": "SEG_ddr4_mig_Mem0",
                 "MV": "xilinx.com:module_ref:axi2bram_datamover_wrapper:1.0",
@@ -218,6 +236,11 @@
             },
             {
                 "src": "V3",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V4",
                 "trg": "V2",
                 "EH": "2"
             }

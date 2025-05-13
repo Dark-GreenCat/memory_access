@@ -5,6 +5,7 @@
    <db_ref_list>
       <db_ref path="sim_tb_behav.wdb" id="1">
          <top_modules>
+            <top_module name="\$unit_sim_tb_sv " />
             <top_module name="axi_bram_ctrl_funcs" />
             <top_module name="glbl" />
             <top_module name="sim_tb" />
@@ -13,15 +14,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="952.501 ns"></ZoomEndTime>
-      <Cursor1Time time="91.167 ns"></Cursor1Time>
+      <ZoomStartTime time="269.583 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,887.084 ns"></ZoomEndTime>
+      <Cursor1Time time="1,617.500 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="205"></NameColumnWidth>
+      <NameColumnWidth column_width="201"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="5" />
+   <WVObjectSize size="8" />
    <wvobject type="logic" fp_name="/sim_tb/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -39,98 +40,243 @@
       <obj_property name="ObjectShortName">ddr4_rst_n</obj_property>
    </wvobject>
    <wvobject type="group" fp_name="group86">
-      <obj_property name="label">AXI2BRAM DATAMOVER</obj_property>
+      <obj_property name="label">A2BDM_MRF_0</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject type="group" fp_name="group88">
          <obj_property name="label">Internal Reg</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/state">
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/state">
             <obj_property name="ElementShortName">state[1:0]</obj_property>
             <obj_property name="ObjectShortName">state[1:0]</obj_property>
          </wvobject>
-         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/next_state">
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/next_state">
             <obj_property name="ElementShortName">next_state[1:0]</obj_property>
             <obj_property name="ObjectShortName">next_state[1:0]</obj_property>
          </wvobject>
-         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/transfer_count">
-            <obj_property name="ElementShortName">transfer_count[7:0]</obj_property>
-            <obj_property name="ObjectShortName">transfer_count[7:0]</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/done">
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/done">
             <obj_property name="ElementShortName">done</obj_property>
             <obj_property name="ObjectShortName">done</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/transfer_count">
+            <obj_property name="ElementShortName">transfer_count[7:0]</obj_property>
+            <obj_property name="ObjectShortName">transfer_count[7:0]</obj_property>
          </wvobject>
       </wvobject>
       <wvobject type="group" fp_name="group87">
          <obj_property name="label">Ctrl Interface</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/clk">
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/clk">
             <obj_property name="ElementShortName">clk</obj_property>
             <obj_property name="ObjectShortName">clk</obj_property>
          </wvobject>
-         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/rst_n">
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/rst_n">
             <obj_property name="ElementShortName">rst_n</obj_property>
             <obj_property name="ObjectShortName">rst_n</obj_property>
          </wvobject>
-         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/start_i">
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/start_i">
             <obj_property name="ElementShortName">start_i</obj_property>
             <obj_property name="ObjectShortName">start_i</obj_property>
          </wvobject>
-         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/src_axi_addr_i">
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/src_axi_addr_i">
             <obj_property name="ElementShortName">src_axi_addr_i[35:0]</obj_property>
             <obj_property name="ObjectShortName">src_axi_addr_i[35:0]</obj_property>
          </wvobject>
-         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/dst_bram_addr_i">
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/dst_bram_addr_i">
             <obj_property name="ElementShortName">dst_bram_addr_i[5:0]</obj_property>
             <obj_property name="ObjectShortName">dst_bram_addr_i[5:0]</obj_property>
          </wvobject>
-         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/byte_to_trans_i">
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/byte_to_trans_i">
             <obj_property name="ElementShortName">byte_to_trans_i[14:0]</obj_property>
             <obj_property name="ObjectShortName">byte_to_trans_i[14:0]</obj_property>
          </wvobject>
-         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/done_o">
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/done_o">
             <obj_property name="ElementShortName">done_o</obj_property>
             <obj_property name="ObjectShortName">done_o</obj_property>
          </wvobject>
       </wvobject>
-      <wvobject type="protoinst" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/M_AXI">
-         <obj_property name="children_use_element_short_name">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-         <obj_property name="EnumTransactionColorTable">0=blank 1=#D399FF 2=pink</obj_property>
-         <obj_property name="EnumTransactionValueTable">0=blank;1=Read;2=Write;3=Read/Write</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="CustomSignalColor">turquoise</obj_property>
-         <obj_property name="Render_Data">/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/M_AXI.readWriteSummary</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         <obj_property name="CellHeight">36</obj_property>
+      <wvobject type="protoinst" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/M_AXI">
          <obj_property name="ElementShortName">M_AXI</obj_property>
          <obj_property name="ObjectShortName">M_AXI</obj_property>
-         <obj_property name="isExpanded"></obj_property>
       </wvobject>
       <wvobject type="group" fp_name="group89">
          <obj_property name="label">BRAM</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/bram_addr">
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/bram_addr">
             <obj_property name="ElementShortName">bram_addr[5:0]</obj_property>
             <obj_property name="ObjectShortName">bram_addr[5:0]</obj_property>
          </wvobject>
-         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/bram_wrdata">
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/bram_wrdata">
             <obj_property name="ElementShortName">bram_wrdata[1023:0]</obj_property>
             <obj_property name="ObjectShortName">bram_wrdata[1023:0]</obj_property>
          </wvobject>
-         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/bram_en">
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/bram_en">
             <obj_property name="ElementShortName">bram_en</obj_property>
             <obj_property name="ObjectShortName">bram_en</obj_property>
          </wvobject>
-         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover/inst/axi2bram_datamover_inst/bram_we">
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_mrf_0/inst/axi2bram_datamover_inst/bram_we">
             <obj_property name="ElementShortName">bram_we</obj_property>
             <obj_property name="ObjectShortName">bram_we</obj_property>
          </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1315">
+      <obj_property name="label">A2BDM_VRF_LD</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="group" fp_name="group1316">
+         <obj_property name="label">Internal Reg</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/state">
+            <obj_property name="ElementShortName">state[1:0]</obj_property>
+            <obj_property name="ObjectShortName">state[1:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/next_state">
+            <obj_property name="ElementShortName">next_state[1:0]</obj_property>
+            <obj_property name="ObjectShortName">next_state[1:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/done">
+            <obj_property name="ElementShortName">done</obj_property>
+            <obj_property name="ObjectShortName">done</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/transfer_count">
+            <obj_property name="ElementShortName">transfer_count[7:0]</obj_property>
+            <obj_property name="ObjectShortName">transfer_count[7:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="group1317">
+         <obj_property name="label">Ctrl Interface</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/clk">
+            <obj_property name="ElementShortName">clk</obj_property>
+            <obj_property name="ObjectShortName">clk</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/rst_n">
+            <obj_property name="ElementShortName">rst_n</obj_property>
+            <obj_property name="ObjectShortName">rst_n</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/start_i">
+            <obj_property name="ElementShortName">start_i</obj_property>
+            <obj_property name="ObjectShortName">start_i</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/src_axi_addr_i">
+            <obj_property name="ElementShortName">src_axi_addr_i[35:0]</obj_property>
+            <obj_property name="ObjectShortName">src_axi_addr_i[35:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/dst_bram_addr_i">
+            <obj_property name="ElementShortName">dst_bram_addr_i[9:0]</obj_property>
+            <obj_property name="ObjectShortName">dst_bram_addr_i[9:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/byte_to_trans_i">
+            <obj_property name="ElementShortName">byte_to_trans_i[14:0]</obj_property>
+            <obj_property name="ObjectShortName">byte_to_trans_i[14:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/done_o">
+            <obj_property name="ElementShortName">done_o</obj_property>
+            <obj_property name="ObjectShortName">done_o</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/M_AXI">
+         <obj_property name="ElementShortName">M_AXI</obj_property>
+         <obj_property name="ObjectShortName">M_AXI</obj_property>
+      </wvobject>
+      <wvobject type="group" fp_name="group1318">
+         <obj_property name="label">BRAM</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/bram_addr">
+            <obj_property name="ElementShortName">bram_addr[9:0]</obj_property>
+            <obj_property name="ObjectShortName">bram_addr[9:0]</obj_property>
+         </wvobject>
+         <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/bram_wrdata">
+            <obj_property name="ElementShortName">bram_wrdata[1023:0]</obj_property>
+            <obj_property name="ObjectShortName">bram_wrdata[1023:0]</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/bram_en">
+            <obj_property name="ElementShortName">bram_en</obj_property>
+            <obj_property name="ObjectShortName">bram_en</obj_property>
+         </wvobject>
+         <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/axi2bram_datamover_vrf_load/inst/axi2bram_datamover_inst/bram_we">
+            <obj_property name="ElementShortName">bram_we</obj_property>
+            <obj_property name="ObjectShortName">bram_we</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1378">
+      <obj_property name="label">Arbiter</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/arbiter/clk">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/arbiter/rst_n">
+         <obj_property name="ElementShortName">rst_n</obj_property>
+         <obj_property name="ObjectShortName">rst_n</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/arbiter/wr_req">
+         <obj_property name="ElementShortName">wr_req</obj_property>
+         <obj_property name="ObjectShortName">wr_req</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/arbiter/wr_gnt">
+         <obj_property name="ElementShortName">wr_gnt</obj_property>
+         <obj_property name="ObjectShortName">wr_gnt</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/arbiter/wr_addr">
+         <obj_property name="ElementShortName">wr_addr[9:0]</obj_property>
+         <obj_property name="ObjectShortName">wr_addr[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/arbiter/wr_data">
+         <obj_property name="ElementShortName">wr_data[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">wr_data[1023:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/arbiter/addra">
+         <obj_property name="ElementShortName">addra[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/arbiter/douta">
+         <obj_property name="ElementShortName">douta[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">douta[1023:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/arbiter/dina">
+         <obj_property name="ElementShortName">dina[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[1023:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/arbiter/ena">
+         <obj_property name="ElementShortName">ena</obj_property>
+         <obj_property name="ObjectShortName">ena</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/arbiter/wea">
+         <obj_property name="ElementShortName">wea</obj_property>
+         <obj_property name="ObjectShortName">wea</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1386">
+      <obj_property name="label">VRF</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/vrf/clka">
+         <obj_property name="ElementShortName">clka</obj_property>
+         <obj_property name="ObjectShortName">clka</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/vrf/rsta">
+         <obj_property name="ElementShortName">rsta</obj_property>
+         <obj_property name="ObjectShortName">rsta</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sim_tb/ma_wrapper_inst/ma_i/vrf/ena">
+         <obj_property name="ElementShortName">ena</obj_property>
+         <obj_property name="ObjectShortName">ena</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/vrf/wea">
+         <obj_property name="ElementShortName">wea[0:0]</obj_property>
+         <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/vrf/addra">
+         <obj_property name="ElementShortName">addra[9:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/vrf/dina">
+         <obj_property name="ElementShortName">dina[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[1023:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sim_tb/ma_wrapper_inst/ma_i/vrf/douta">
+         <obj_property name="ElementShortName">douta[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">douta[1023:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>
